@@ -57,9 +57,9 @@ jobs:
     - name: Pack Build Files
       run: |
         mkdir D:\a\desktop\Revolt-windows
-        mv D:\a\desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
+        mv D:\a\desktop\divolt-desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
         mkdir D:\a\desktop\Revolt-windows-Setup
-        mv D:\a\desktop\dist\*.exe D:\a\desktop\Revolt-windows-Setup
+        mv D:\a\desktop\divolt-desktop\dist\*.exe D:\a\desktop\Revolt-windows-Setup
         cd D:\a\desktop
         7z a -tzip Revolt-windows.zip Revolt-windows\
         7z a -tzip Revolt-windows-Setup.zip Revolt-windows-Setup\
