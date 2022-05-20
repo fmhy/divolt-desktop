@@ -115,5 +115,5 @@ jobs:
       with:
         artifacts: "~/artifacts/*"
         body: "This is an automated release. There may be bugs."
-        tag: ${{ github.sha }}
+        tag: ${{ github.run_id }}
         token: ${{ secrets.GITHUB_TOKEN }}
