@@ -103,6 +103,7 @@ jobs:
   
   publish-release:
     runs-on: ubuntu-latest
+    needs: [build-linux, build-windows, build-macos]
     steps:
     - uses: actions/checkout@master
     - name: Download Artifacts
@@ -114,4 +115,5 @@ jobs:
       with:
         artifacts: "~/artifacts/*"
         body: "This is an automated release. There may be bugs."
+        tag: ${{ github.sha }}
         token: ${{ secrets.GITHUB_TOKEN }}
