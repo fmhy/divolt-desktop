@@ -56,7 +56,7 @@ jobs:
         yarn build:windows:appx --publish never
     - name: Pack Build Files
       run: |
-        dir /s
+        Get-ChildItem -Path D:\a\desktop –Recurse
         mkdir D:\a\desktop\Revolt-windows
         mv D:\a\desktop\desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
         mkdir D:\a\desktop\Revolt-windows-Setup
