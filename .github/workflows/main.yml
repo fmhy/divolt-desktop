@@ -113,7 +113,7 @@ jobs:
     - name: Make release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "~/artifacts/*"
+        artifacts: "~/artifacts/Revolt-linux-AppImage/*,~/artifacts/Revolt-linux/*,~/artifacts/Revolt-macOS/*,~/artifacts/Revolt-windows-Setup/*,~/artifacts/Revolt-windows/*"
         body: "This is an automated release. There may be bugs."
         tag: ${{ github.run_id }}
         token: ${{ secrets.GITHUB_TOKEN }}
