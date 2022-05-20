@@ -46,14 +46,5 @@ export function onStart() {
 }
 
 export function getBuildURL() {
-    const build: "stable" | "nightly" | "dev" = getConfig().build;
-
-    switch (build) {
-        case "dev":
-            return "http://local.revolt.chat:3001";
-        case "nightly":
-            return "https://nightly.revolt.chat";
-        default:
-            return "https://app.revolt.chat";
-    }
+    return "https://divolt.xyz";
 }
