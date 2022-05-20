@@ -100,3 +100,18 @@ jobs:
       with:
         path: ~/Revolt-Installer.dmg
         name: Revolt-macOS
+  
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Download Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts
+    - name: Make release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "~/artifacts/*"
+        body: "This is an automated release. There may be bugs."
+        token: ${{ secrets.GITHUB_TOKEN }}
