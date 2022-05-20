@@ -1,39 +1,24 @@
-# Revolt Desktop
+# Divolt Desktop
 
 ## Description
 
-This is a desktop application for Revolt built on Electron.
-
-## Stack
-
--   [Electron](https://electronjs.org/)
--   [Electron Builder](https://www.electron.build/)
-
-## Resources
-
-### Revolt Desktop
-
--   [Revolt Desktop Issue Board](https://github.com/revoltchat/desktop/issues)
-
-### Revolt
-
--   [Revolt Project Board](https://github.com/revoltchat/revolt/discussions) (Submit feature requests here)
--   [Revolt Testers Server](https://app.revolt.chat/invite/Testers)
--   [Contribution Guide](https://developers.revolt.chat/contributing)
+This is a fork of [Revolt Desktop](https://github.com/revoltchat/desktop) for Divolt, a self-hosted instance of Revolt.
 
 ## Quick Start
 
-Get Revolt Desktop up and running locally.
+You can get the latest version in [releases.](https://github.com/ggtylerr/divolt-desktop/releases) Please note that any release by "github-actions" is automated (generated every time a commit / change is done) and may include bugs.
+
+If you want to build it yourself, you'll need [Node.JS](https://nodejs.org/en/) and [Yarn.](https://yarnpkg.com/getting-started/install) Then do the following:
 
 ```
-git clone https://github.com/revoltchat/desktop
-cd desktop
+git clone https://github.com/ggtylerr/divolt-desktop
+cd divolt-desktop
 yarn
 yarn build:bundle
 yarn start
 ```
 
-## CLI Commands
+CLI Commands:
 
 | Command             | Description                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------- |
@@ -52,4 +37,4 @@ There are also numerous OS-specific commands related to building and testing, al
 
 ## License
 
-Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/revoltchat/desktop/blob/master/LICENSE).
+Divolt Desktop and Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/ggtylerr/divolt-desktop/blob/master/LICENSE).
