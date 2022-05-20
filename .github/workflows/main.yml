@@ -54,15 +54,12 @@ jobs:
         yarn build:bundle
         yarn build:windows:nsis --publish never
         yarn build:windows:appx --publish never
-    - name: Print directory (for debug)
-      run: |
-        Get-ChildItem -Path D:\a\desktop –Recurse
     - name: Pack Build Files
       run: |
         mkdir D:\a\desktop\Revolt-windows
-        mv D:\a\desktop\desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
+        mv D:\a\desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
         mkdir D:\a\desktop\Revolt-windows-Setup
-        mv D:\a\desktop\desktop\dist\*.exe D:\a\desktop\Revolt-windows-Setup
+        mv D:\a\desktop\dist\*.exe D:\a\desktop\Revolt-windows-Setup
         cd D:\a\desktop
         7z a -tzip Revolt-windows.zip Revolt-windows\
         7z a -tzip Revolt-windows-Setup.zip Revolt-windows-Setup\
