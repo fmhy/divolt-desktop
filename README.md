@@ -41,11 +41,13 @@ If you have issues, please check the following first:
 * Does this happen in browser?
 * Are you using an outdated version?
 * If you have connection problems, do you have a firewall?
-If all of the above is false, and it's not listed in the known bugs, please [create an issue.](https://github.com/ggtylerr/divolt-desktop/issues/new/choose)
+
+If all of the above is false, and it's not listed in the known bugs, please [report an issue.](https://github.com/ggtylerr/divolt-desktop/issues/new/choose)
 
 ## Known bugs
 
 * Minimising to tray crashes
+
 This is a bug in the normal client. Once it's fixed there, their changes will be reflected here.
 
 ## License
