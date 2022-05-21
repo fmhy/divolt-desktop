@@ -35,6 +35,19 @@ There are also numerous OS-specific commands related to building and testing, al
  - `test:linux:appimage`
     - Runs the newest build of the Linux AppImage.
 
+## Troubleshooting
+
+If you have issues, please check the following first:
+* Does this happen in browser?
+* Are you using an outdated version?
+* If you have connection problems, do you have a firewall?
+If all of the above is false, and it's not listed in the known bugs, please [create an issue.](https://github.com/ggtylerr/divolt-desktop/issues/new/choose)
+
+## Known bugs
+
+* Minimising to tray crashes
+This is a bug in the normal client. Once it's fixed there, their changes will be reflected here.
+
 ## License
 
 Divolt Desktop and Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/ggtylerr/divolt-desktop/blob/master/LICENSE).
