@@ -19,6 +19,9 @@ export async function firstRun() {
     }
 
     store.set("firstrun", true);
+    store.set("config", {
+        "minimiseToTray": "true"
+    });
 }
 
 export function getConfig(): ConfigData {

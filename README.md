@@ -4,6 +4,8 @@
 
 This is a fork of [Revolt Desktop](https://github.com/revoltchat/desktop) for Divolt, a self-hosted instance of Revolt.
 
+It also has additional features, like an adblocker, [(from revolt-deskstop-adblock)](https://github.com/janderedev/revolt-desktop-adblock) and sooner bug fixes than Revolt.
+
 ## Quick Start
 
 You can get the latest version in [releases.](https://github.com/ggtylerr/divolt-desktop/releases) Please note that any release by "github-actions" is automated (generated every time a commit / change is done) and may include bugs.
@@ -39,6 +41,7 @@ There are also numerous OS-specific commands related to building and testing, al
 
 If you have issues, please check the following first:
 * Does this happen in browser?
+* Does this happen in [the original app?](https://github.com/revoltchat/desktop)
 * Are you using an outdated version?
 * If you have connection problems, do you have a firewall?
 

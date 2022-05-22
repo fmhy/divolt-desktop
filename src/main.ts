@@ -9,12 +9,14 @@ import {
     Tray,
     Menu,
     MenuItem,
+    session,
 } from "electron";
 import { execFile } from "child_process";
 import windowStateKeeper from "electron-window-state";
 import { RelaunchOptions } from "electron/main";
 import { URL } from "url";
 import path from "path";
+import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 import { firstRun, getConfig, store, onStart, getBuildURL } from "./lib/config";
 import { connectRPC, dropRPC } from "./lib/discordRPC";
@@ -78,6 +80,13 @@ function createWindow() {
 
     mainWindowState.manage(mainWindow);
     mainWindow.loadURL(getBuildURL());
+
+    /* Ad blocker */
+    console.info('Loading ad blocker.');
+	ElectronBlocker.fromPrebuiltAdsAndTracking(require('cross-fetch')).then((blocker) => {
+		blocker.enableBlockingInSession(session.defaultSession);
+		console.info('Ad blocker loaded!');
+	});
 
     /**
      * Window events
