@@ -49,9 +49,7 @@ If all of the above is false, and it's not listed in the known bugs, please [rep
 
 ## Known bugs
 
-* Minimising to tray crashes
-
-This is a bug in the normal client. Once it's fixed there, their changes will be reflected here.
+None at the moment!
 
 ## License
 
