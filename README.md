@@ -49,7 +49,13 @@ If all of the above is false, and it's not listed in the known bugs, please [rep
 
 ## Known bugs
 
-None at the moment!
+* App auto-updated to normal Revolt
+
+***Please make sure you downloaded the latest version!*** Most people have downloaded the initial release, and the one immediately after that fixed it.
+
+You can check what version you had by looking in your downloads / history. If you downloaded before May 22, 2022, or downloaded 1.0.4 (also known as v1.0.4-d1.0.0, or any of the automated builds before that,) then you were using an outdated version.
+
+If this still occurred on a later version, please report an issue.
 
 ## License
 
