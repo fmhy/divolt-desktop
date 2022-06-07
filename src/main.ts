@@ -23,10 +23,16 @@ import { connectRPC, dropRPC } from "./lib/discordRPC";
 import { autoLaunch } from "./lib/autoLaunch";
 import { autoUpdate } from "./lib/updater";
 
+import fs from "fs";
+const assetsPath = 
+    fs.existsSync(path.resolve(App.getAppPath(), "Contents"))
+    ? "Contents/assets"
+    : "assets";
+
 const WindowIcon = nativeImage.createFromPath(
     path.resolve(
         App.getAppPath(),
-        "assets",
+        assetsPath,
         // MacOS has special size and naming requirements for tray icons
         // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
         process.platform == "darwin" ? "iconTemplate.png" : "icon.png",
