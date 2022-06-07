@@ -13,3 +13,7 @@ package/*/*.zst
 .yarn/cache
 
 .DS_Store
+
+# dmg build
+dmg-files/source_folder
+dmg-files/rw.Divolt-Installer.dmg

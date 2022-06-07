@@ -58,7 +58,7 @@ function createWindow() {
 
     mainWindow = new BrowserWindow({
         autoHideMenuBar: true,
-        title: "Revolt",
+        title: "Divolt",
         icon: WindowIcon,
 
         frame: initialConfig.frame,
@@ -213,12 +213,12 @@ function createWindow() {
     function buildMenu() {
         tray.setContextMenu(
             Menu.buildFromTemplate([
-                { label: "Revolt", type: "normal", enabled: false },
+                { label: "Divolt", type: "normal", enabled: false },
                 { label: "---", type: "separator" },
                 {
                     label: mainWindow.isVisible()
-                        ? "Hide Revolt"
-                        : "Show Revolt",
+                        ? "Hide Divolt"
+                        : "Show Divolt",
                     type: "normal",
                     click: function () {
                         if (mainWindow.isVisible()) {
@@ -229,7 +229,7 @@ function createWindow() {
                     },
                 },
                 {
-                    label: "Restart Revolt",
+                    label: "Restart Divolt",
                     type: "normal",
                     click: function () {
                         app.shouldRelaunch = true;
@@ -237,7 +237,7 @@ function createWindow() {
                     },
                 },
                 {
-                    label: "Quit Revolt",
+                    label: "Quit Divolt",
                     type: "normal",
                     click: function () {
                         app.shouldQuit = true;
@@ -249,7 +249,7 @@ function createWindow() {
     }
 
     buildMenu();
-    tray.setToolTip("Revolt");
+    tray.setToolTip("Divolt");
     tray.setImage(WindowIcon);
     tray.on("click", function (e) {
         if (mainWindow.isVisible()) {

@@ -94,12 +94,12 @@ jobs:
         cd dmg-files
         chmod +x makedmg.sh
         ./makedmg.sh
-        mv Revolt-Installer.dmg ~
+        mv Divolt-Installer.dmg ~
     - name: Publish Build Files
       uses: actions/upload-artifact@v2
       with:
-        path: ~/Revolt-Installer.dmg
-        name: Revolt-macOS
+        path: ~/Divolt-Installer.dmg
+        name: Divolt-macOS
   
   publish-release:
     runs-on: ubuntu-latest
@@ -113,7 +113,7 @@ jobs:
     - name: Make release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "~/artifacts/Revolt-linux-AppImage/*,~/artifacts/Revolt-linux/*,~/artifacts/Revolt-macOS/*,~/artifacts/Revolt-windows-Setup/*,~/artifacts/Revolt-windows/*"
+        artifacts: "~/artifacts/Revolt-linux-AppImage/*,~/artifacts/Revolt-linux/*,~/artifacts/Divolt-macOS/*,~/artifacts/Revolt-windows-Setup/*,~/artifacts/Revolt-windows/*"
         body: "This is an automated release. There may be bugs."
         prerelease: true
         tag: ${{ github.run_id }}
