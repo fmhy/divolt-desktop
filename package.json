@@ -61,6 +61,9 @@
                 "appx"
             ]
         },
+        "extraFiles": [
+            "assets"
+        ],
         "appx": {
             "displayName": "Divolt Desktop",
             "applicationId": "revolt.chat",
