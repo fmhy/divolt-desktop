@@ -23,22 +23,21 @@ import { connectRPC, dropRPC } from "./lib/discordRPC";
 import { autoLaunch } from "./lib/autoLaunch";
 import { autoUpdate } from "./lib/updater";
 
-import fs from "fs";
-const assetsPath = 
-    fs.existsSync(path.resolve(App.getAppPath(), "Contents"))
-    ? "Contents/assets"
-    : "assets";
-
-const WindowIcon = nativeImage.createFromPath(
+const trayIcon = nativeImage.createFromPath(
     path.resolve(
         App.getAppPath(),
-        assetsPath,
+        "assets",
         // MacOS has special size and naming requirements for tray icons
         // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
-        process.platform == "darwin" ? "iconTemplate.png" : "icon.png",
+        process.platform === "darwin" ? "trayIconTemplate.png" : "trayIcon.png",
     ),
 );
 
+const WindowIcon = nativeImage.createFromPath(
+    path.resolve(App.getAppPath(), "assets", "icon.png"),
+);
+
+trayIcon.setTemplateImage(true);
 WindowIcon.setTemplateImage(true);
 
 onStart();
@@ -214,7 +213,7 @@ function createWindow() {
     /**
      * System tray
      */
-    const tray = new Tray(WindowIcon);
+    const tray = new Tray(trayIcon);
 
     function buildMenu() {
         tray.setContextMenu(
@@ -256,7 +255,7 @@ function createWindow() {
 
     buildMenu();
     tray.setToolTip("Divolt");
-    tray.setImage(WindowIcon);
+    tray.setImage(trayIcon);
     tray.on("click", function (e) {
         if (mainWindow.isVisible()) {
             if (mainWindow.isFocused()) {
@@ -280,7 +279,13 @@ if (!acquiredLock) {
 } else {
     App.on("second-instance", () => {
         if (mainWindow) {
+            // Restore from tray if hidden
+            if (!mainWindow.isVisible()) mainWindow.show();
+
+            // Restore from taskbar if minimised
             if (mainWindow.isMinimized()) mainWindow.restore();
+
+            // Then focus the window
             mainWindow.focus();
         }
     });
@@ -302,7 +307,6 @@ App.on("window-all-closed", function () {
     if (app.shouldRelaunch) {
         const options: RelaunchOptions = {
             args: process.argv.slice(1).concat(["--relaunch"]),
-            execPath: process.execPath,
         };
 
         if (App.isPackaged && process.env.APPIMAGE) {
