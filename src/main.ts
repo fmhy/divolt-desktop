@@ -23,9 +23,11 @@ import { connectRPC, dropRPC } from "./lib/discordRPC";
 import { autoLaunch } from "./lib/autoLaunch";
 import { autoUpdate } from "./lib/updater";
 
+const appPath = App.getAppPath();
 const trayIcon = nativeImage.createFromPath(
     path.resolve(
-        App.getAppPath(),
+        // Yes this is a really hacky solution to fix this.
+        appPath + (appPath.endsWith(path.resolve("resources", "app.asar")) ? "/../.." : ""),
         "assets",
         // MacOS has special size and naming requirements for tray icons
         // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
@@ -219,6 +221,16 @@ function createWindow() {
         tray.setContextMenu(
             Menu.buildFromTemplate([
                 { label: "Divolt", type: "normal", enabled: false },
+                { label: "---", type: "separator" },
+                {
+                    label: "Clear Cache",
+                    type: "normal",
+                    click: function () {
+                        mainWindow.webContents.session.clearCache();
+                        app.shouldRelaunch = true;
+                        mainWindow.close();
+                    },
+                },
                 { label: "---", type: "separator" },
                 {
                     label: mainWindow.isVisible()

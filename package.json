@@ -1,6 +1,6 @@
 {
     "name": "divolt-desktop",
-    "version": "v1.0.6-d1.1.0",
+    "version": "v1.0.6-d1.2.0",
     "description": "Divolt desktop app",
     "private": true,
     "author": {
@@ -31,7 +31,7 @@
         "@types/discord-rpc": "^4.0.1",
         "dotenv-cli": "^5.0.0",
         "electron": "^17.1.0",
-        "electron-builder": "^22.14.13",
+        "electron-builder": "23.6.0",
         "node-gyp": "^9.0.0",
         "prettier": "^2.6.2",
         "rimraf": "^3.0.2",
