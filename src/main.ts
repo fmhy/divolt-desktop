@@ -26,13 +26,23 @@ import { autoUpdate } from "./lib/updater";
 const appPath = App.getAppPath();
 const trayIcon = nativeImage.createFromPath(
     path.resolve(
-        // Yes this is a really hacky solution to fix this.
-        appPath + (appPath.endsWith(path.resolve("resources", "app.asar")) ? "/../.." : ""),
+        appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
         "assets",
         // MacOS has special size and naming requirements for tray icons
         // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
         process.platform === "darwin" ? "trayIconTemplate.png" : "trayIcon.png",
     ),
+);
+
+console.log(
+    path.resolve(
+        // Yes this is a really hacky solution to fix this.
+        appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
+        "assets",
+        // MacOS has special size and naming requirements for tray icons
+        // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
+        process.platform === "darwin" ? "trayIconTemplate.png" : "trayIcon.png",
+    )
 );
 
 const WindowIcon = nativeImage.createFromPath(
