@@ -49,6 +49,10 @@ If all of the above is false, and it's not listed in the known bugs, please [rep
 
 ## Known bugs
 
+* Unable to preload CSS
+
+This shouldn't happen anymore, but if it does, right click the tray icon and hit "clear cache".
+
 * App auto-updated to normal Revolt
 
 ***Please make sure you downloaded the latest version!*** Most people have downloaded the initial release, and the one immediately after that fixed it.
@@ -56,10 +60,6 @@ If all of the above is false, and it's not listed in the known bugs, please [rep
 You can check what version you had by looking in your downloads / history. If you downloaded before May 22, 2022, or downloaded 1.0.4 (also known as v1.0.4-d1.0.0, or any of the automated builds before that,) then you were using an outdated version.
 
 If this still occurred on a later version, please report an issue.
-
-* Tray icon and Desktop settings missing on Mac
-
-The current workaround is to do the commands in [Quick Start](#quick-start) instead of using the released version. See [Issue #2.](https://github.com/ggtylerr/divolt-desktop/issues/2)
 
 ## License
 
