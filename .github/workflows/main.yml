@@ -55,9 +55,9 @@ jobs:
     - name: Pack Build Files
       run: |
         mkdir D:\a\desktop\Revolt-windows
-        mv D:\a\desktop\desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
+        mv D:\a\divolt-desktop\divolt-desktop\dist\win-unpacked\* D:\a\desktop\Revolt-windows
         mkdir D:\a\desktop\Revolt-windows-Setup
-        mv D:\a\desktop\desktop\dist\*.exe D:\a\desktop\Revolt-windows-Setup.exe
+        mv D:\a\divolt-desktop\divolt-desktop\dist\*.exe D:\a\desktop\Revolt-windows-Setup
         mkdir D:\a\desktop\Revolt-windows-appx
         mv D:\a\desktop\desktop\dist\*.appx D:\a\desktop\Revolt-windows-appx
     - name: Publish Zipfile

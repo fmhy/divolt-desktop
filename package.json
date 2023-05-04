@@ -1,14 +1,20 @@
 {
-    "name": "revolt-desktop",
-    "version": "1.0.6",
-    "description": "Revolt desktop app",
+    "name": "divolt-desktop",
+    "version": "v1.0.6-d1.2.1",
+    "description": "Divolt desktop app",
     "private": true,
     "author": {
         "name": "Paul Makles",
         "url": "https://insrt.uk",
         "email": "me@insrt.uk"
     },
-    "homepage": "https://revolt.chat",
+    "contributors": [
+        {
+            "name": "Tyler Flowers",
+            "email": "contact@ggtylerr.dev"
+        }
+    ],
+    "homepage": "https://divolt.xyz",
     "main": "bundle/main.js",
     "scripts": {
         "start": "electron .",
@@ -23,7 +29,7 @@
         "clean": "rimraf dist",
         "fmt": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
     },
-    "repository": "revoltchat/desktop",
+    "repository": "fmhy/divolt-desktop",
     "devDependencies": {
         "@types/auto-launch": "^5.0.2",
         "@types/discord-rpc": "^4.0.3",
@@ -36,9 +42,9 @@
         "tsc-watch": "^5.0.3",
         "typescript": "^4.9.3"
     },
-    "productName": "Revolt",
+    "productName": "Divolt",
     "build": {
-        "appId": "chat.revolt.app",
+        "appId": "divolt.xyz",
         "mac": {
             "target": [
                 {
@@ -79,7 +85,7 @@
             "category": "InstantMessaging",
             "executableName": "revolt-desktop",
             "desktop": {
-                "Name": "Revolt",
+                "Name": "Divolt",
                 "Comment": "User-first, privacy focused chat platform.",
                 "Terminal": false,
                 "Type": "Application",
@@ -109,7 +115,7 @@
         },
         "appx": {
             "backgroundColor": "#0F1823",
-            "displayName": "Revolt Chat",
+            "displayName": "Divolt Desktop",
             "applicationId": "revolt.chat",
             "identityName": "40345RevoltCommunications.revolt.chat",
             "publisher": "CN=B040CC7E-0016-4AF5-957F-F8977A6CFA3B",
@@ -142,7 +148,9 @@
         }
     },
     "dependencies": {
+        "@cliqz/adblocker-electron": "^1.26.5",
         "auto-launch": "^5.0.5",
+        "cross-fetch": "^3.1.5",
         "discord-rpc": "npm:@insertish/discord-rpc@*",
         "electron-store": "^8.1.0",
         "electron-updater": "^5.3.0",

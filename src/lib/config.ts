@@ -19,6 +19,9 @@ export async function firstRun() {
     }
 
     store.set("firstrun", true);
+    store.set("config", {
+        minimiseToTray: "false",
+    });
 }
 
 export function getConfig(): ConfigData {
@@ -26,7 +29,7 @@ export function getConfig(): ConfigData {
         build: "stable",
         frame: process.platform !== "win32",
         discordRPC: false,
-        minimiseToTray: true,
+        minimiseToTray: false,
         hardwareAcceleration: true,
     };
 
@@ -46,14 +49,6 @@ export function onStart() {
 }
 
 export function getBuildURL() {
-    const build: "stable" | "nightly" | "dev" = getConfig().build;
-
-    switch (build) {
-        case "dev":
-            return "http://local.revolt.chat:3001";
-        case "nightly":
-            return "https://nightly.revolt.chat";
-        default:
-            return "https://app.revolt.chat";
-    }
+    // TODO: add an API_URL option
+    return "https://divolt.xyz";
 }

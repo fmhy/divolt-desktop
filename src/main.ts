@@ -9,6 +9,7 @@ import {
     Tray,
     Menu,
     MenuItem,
+    session,
 } from "electron";
 import { execFile } from "node:child_process";
 import windowStateKeeper from "electron-window-state";
@@ -20,12 +21,14 @@ import { firstRun, getConfig, store, onStart, getBuildURL } from "./lib/config";
 import { connectRPC, dropRPC } from "./lib/discordRPC";
 import { autoLaunch } from "./lib/autoLaunch";
 import { autoUpdate } from "./lib/updater";
+import { ElectronBlocker } from "@cliqz/adblocker-electron";
 
 let forceQuit = false;
+const appPath = App.getAppPath();
 
 const trayIcon = nativeImage.createFromPath(
     path.resolve(
-        App.getAppPath(),
+        appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
         "assets",
         // MacOS has special size and naming requirements for tray icons
         // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
@@ -63,7 +66,7 @@ function createWindow() {
 
     mainWindow = new BrowserWindow({
         autoHideMenuBar: true,
-        title: "Revolt",
+        title: "Divolt",
         icon: WindowIcon,
 
         frame: initialConfig.frame,
@@ -91,6 +94,15 @@ function createWindow() {
 
     mainWindowState.manage(mainWindow);
     mainWindow.loadURL(getBuildURL());
+
+    /* Ad blocker */
+    console.info("Loading ad blocker.");
+    ElectronBlocker.fromPrebuiltAdsAndTracking(require("cross-fetch")).then(
+        (blocker) => {
+            blocker.enableBlockingInSession(session.defaultSession);
+            console.info("Ad blocker loaded!");
+        },
+    );
 
     /**
      * Window events
@@ -217,12 +229,21 @@ function createWindow() {
     function buildMenu() {
         tray.setContextMenu(
             Menu.buildFromTemplate([
-                { label: "Revolt", type: "normal", enabled: false },
+                { label: "Divolt", type: "normal", enabled: false },
                 { label: "---", type: "separator" },
                 {
+                    label: "Clear Cache",
+                    type: "normal",
+                    click: function () {
+                        mainWindow.webContents.session.clearCache();
+                        app.shouldRelaunch = true;
+                        mainWindow.close();
+                    },
+                },
+                {
                     label: mainWindow.isVisible()
-                        ? "Hide Revolt"
-                        : "Show Revolt",
+                        ? "Hide Divolt"
+                        : "Show Divolt",
                     type: "normal",
                     click: function () {
                         if (mainWindow.isVisible()) {
@@ -233,7 +254,7 @@ function createWindow() {
                     },
                 },
                 {
-                    label: "Restart Revolt",
+                    label: "Restart Divolt",
                     type: "normal",
                     click: function () {
                         app.shouldRelaunch = true;
@@ -241,7 +262,7 @@ function createWindow() {
                     },
                 },
                 {
-                    label: "Quit Revolt",
+                    label: "Quit Divolt",
                     type: "normal",
                     click: function () {
                         app.shouldQuit = true;
@@ -253,7 +274,7 @@ function createWindow() {
     }
 
     buildMenu();
-    tray.setToolTip("Revolt");
+    tray.setToolTip("Divolt");
     tray.setImage(trayIcon);
 }
 

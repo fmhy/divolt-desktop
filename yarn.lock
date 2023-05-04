@@ -12,6 +12,62 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cliqz/adblocker-content@npm:^1.26.5":
+  version: 1.26.5
+  resolution: "@cliqz/adblocker-content@npm:1.26.5"
+  dependencies:
+    "@cliqz/adblocker-extended-selectors": ^1.26.5
+  checksum: 8d95320ee0ddbc52a2580fa20ee71b4b5f41c40455c06a00fc2e396000f508ee5484e5ccded7d615aec482941ee1838361abfd977d9d4d566b58edff7ccde664
+  languageName: node
+  linkType: hard
+
+"@cliqz/adblocker-electron-preload@npm:^1.26.5":
+  version: 1.26.5
+  resolution: "@cliqz/adblocker-electron-preload@npm:1.26.5"
+  dependencies:
+    "@cliqz/adblocker-content": ^1.26.5
+  peerDependencies:
+    electron: ">11"
+  checksum: 932798b8078f8cc7546f331f99902ee5152a0732542e5ce18397e4aa4e3c88f8d2fb42532b90fffe48c896682069928746cbcfb37560c9f57ac4c4bd935bc2bd
+  languageName: node
+  linkType: hard
+
+"@cliqz/adblocker-electron@npm:^1.26.5":
+  version: 1.26.5
+  resolution: "@cliqz/adblocker-electron@npm:1.26.5"
+  dependencies:
+    "@cliqz/adblocker": ^1.26.5
+    "@cliqz/adblocker-electron-preload": ^1.26.5
+    tldts-experimental: ^5.6.21
+  peerDependencies:
+    electron: ">11"
+  checksum: 666f562a5745cf0e54b26253d6c9506a049c9a84a8a1002d3027a951bf195f094f7d506997872e0774dc4b6bc5b7b1a02db0c1aa9c44219ead283e0b90394d3c
+  languageName: node
+  linkType: hard
+
+"@cliqz/adblocker-extended-selectors@npm:^1.26.5":
+  version: 1.26.5
+  resolution: "@cliqz/adblocker-extended-selectors@npm:1.26.5"
+  checksum: 8c48e2fc52c20e9411298035b2a51de5a03fea09dec650e54f7471a4034f36841ab03caa0e762805e4c8c389c98b8b398d6b948569424cb0b1a540f738c80d99
+  languageName: node
+  linkType: hard
+
+"@cliqz/adblocker@npm:^1.26.5":
+  version: 1.26.5
+  resolution: "@cliqz/adblocker@npm:1.26.5"
+  dependencies:
+    "@cliqz/adblocker-content": ^1.26.5
+    "@cliqz/adblocker-extended-selectors": ^1.26.5
+    "@remusao/guess-url-type": ^1.1.2
+    "@remusao/small": ^1.1.2
+    "@remusao/smaz": ^1.7.1
+    "@types/chrome": ^0.0.225
+    "@types/firefox-webext-browser": ^111.0.0
+    tldts-experimental: ^5.6.21
+  checksum: 2c1ef4a0947fb137edcbefd219d28f86515968884280939986aafecf4ebc926a43bb52099994935336349fc9a80a22f5477919ed46350820f4d0fb914b769f23
+  languageName: node
+  linkType: hard
+
 "@develar/schema-utils@npm:~2.6.5":
   version: 2.6.5
   resolution: "@develar/schema-utils@npm:2.6.5"
@@ -104,6 +160,53 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remusao/guess-url-type@npm:^1.1.2":
+  version: 1.2.1
+  resolution: "@remusao/guess-url-type@npm:1.2.1"
+  checksum: 37a5142c970b6fb0c217c87a554add83b370dabd7f9f191e61747ba0979d8ceede5bea74cd00896641eab1ef3f23f37398d050a2e0de2adb719c556087cd623a
+  languageName: node
+  linkType: hard
+
+"@remusao/small@npm:^1.1.2":
+  version: 1.2.1
+  resolution: "@remusao/small@npm:1.2.1"
+  checksum: e9c6a6d117754a86064c6a65f256ec7d0a0a73e0096ef522ea036d702477c5d4ace3349a5236ebcc2809dc887a60bf627eed0e45fd3416f3a6051e3a3436c712
+  languageName: node
+  linkType: hard
+
+"@remusao/smaz-compress@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "@remusao/smaz-compress@npm:1.9.1"
+  dependencies:
+    "@remusao/trie": ^1.4.1
+  checksum: e01875f4bb2508316f234c2bf662d8aab3ecaddd5cea516a6822954533e4305ff6d5f90e9e53f5bcababf203d515e9b99da9e7f6e58007aabcb90f5e4c5c9669
+  languageName: node
+  linkType: hard
+
+"@remusao/smaz-decompress@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "@remusao/smaz-decompress@npm:1.9.1"
+  checksum: 6abc127dd3ff79b63bb469ae265ab568d1b9a4234f759cbff8c7688a4adf78141c0913255eb281fee03fc9250bc3ee36494999f01a7950c3a86bb5b9e7ab4dcc
+  languageName: node
+  linkType: hard
+
+"@remusao/smaz@npm:^1.7.1":
+  version: 1.9.1
+  resolution: "@remusao/smaz@npm:1.9.1"
+  dependencies:
+    "@remusao/smaz-compress": ^1.9.1
+    "@remusao/smaz-decompress": ^1.9.1
+  checksum: 0a7607daccd751b21a2baf43eff5b82948bfe666353612510c3c34bc3a864a40ffd8cfa5f4c29ae240426d400e95e0816bb581b3233be78ed05a315b53d65df1
+  languageName: node
+  linkType: hard
+
+"@remusao/trie@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@remusao/trie@npm:1.4.1"
+  checksum: 0df106a649fd1b33cfa78712518e59b9c4b00c06dbdd0cda17f0ae8a6e661996a3b84161139eacb9578e8ee0a03564a860875537414b906c1dddf39a05db7570
+  languageName: node
+  linkType: hard
+
 "@sindresorhus/is@npm:^4.0.0":
   version: 4.6.0
   resolution: "@sindresorhus/is@npm:4.6.0"
@@ -146,6 +249,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chrome@npm:^0.0.225":
+  version: 0.0.225
+  resolution: "@types/chrome@npm:0.0.225"
+  dependencies:
+    "@types/filesystem": "*"
+    "@types/har-format": "*"
+  checksum: e507ab091b52b27cf49fbb33d5bb5730325928bcebab39f8ac888599ccef4c66115a7280f56a9e00eb48718cf95a2564159c7303f814041e2b62fe33c6c7bc99
+  languageName: node
+  linkType: hard
+
 "@types/debug@npm:^4.1.6":
   version: 4.1.7
   resolution: "@types/debug@npm:4.1.7"
@@ -159,6 +272,29 @@ __metadata:
   version: 4.0.3
   resolution: "@types/discord-rpc@npm:4.0.3"
   checksum: 025a15adc4326fc5bfc5df95a9d5163146223211723794a0d83541f67ca37cf8aee37ce5a6e7dca76cf7b99d972b13fd20711d19ef765c0fcf3807805dbc4168
+  languageName: node
+  linkType: hard
+
+"@types/filesystem@npm:*":
+  version: 0.0.32
+  resolution: "@types/filesystem@npm:0.0.32"
+  dependencies:
+    "@types/filewriter": "*"
+  checksum: 4b9079d200a3b241722b90e1c5806c4b32c4dac87d42a1c7ef76a2c0dafdbe7d5f1a379b873ad5de73622b44de6599e1522908f67b938d54e785bd1c36e302a0
+  languageName: node
+  linkType: hard
+
+"@types/filewriter@npm:*":
+  version: 0.0.29
+  resolution: "@types/filewriter@npm:0.0.29"
+  checksum: 0c58aa875c2c245be7dbc42b20212f3203e13d11ec013a4a5cd0febf0e8b87214be5882c05ff9d7bdf0398f145a4fdbc24b7e6cf7b094e134a3b4c7a0598502f
+  languageName: node
+  linkType: hard
+
+"@types/firefox-webext-browser@npm:^111.0.0":
+  version: 111.0.1
+  resolution: "@types/firefox-webext-browser@npm:111.0.1"
+  checksum: 1730c2e303cb502dd3e85aeb6ac645e3526c1583da0ae02ea1203ac002485ba5bf045f7183840b6bde4055f43818b366db6dd112e0d611ec1d82c86c74a4589b
   languageName: node
   linkType: hard
 
@@ -178,6 +314,13 @@ __metadata:
     "@types/minimatch": "*"
     "@types/node": "*"
   checksum: 6ae717fedfdfdad25f3d5a568323926c64f52ef35897bcac8aca8e19bc50c0bd84630bbd063e5d52078b2137d8e7d3c26eabebd1a2f03ff350fff8a91e79fc19
+  languageName: node
+  linkType: hard
+
+"@types/har-format@npm:*":
+  version: 1.2.10
+  resolution: "@types/har-format@npm:1.2.10"
+  checksum: 14c0118d809e77a0bac9deec0a87159c28beab21105cfce3aa291b51e28d4c07142851c4e6b93b7ecb4ea237fe07d39ba98a42bb2de2f5891144733411ac76b7
   languageName: node
   linkType: hard
 
@@ -918,6 +1061,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cross-fetch@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "cross-fetch@npm:3.1.5"
+  dependencies:
+    node-fetch: 2.6.7
+  checksum: f6b8c6ee3ef993ace6277fd789c71b6acf1b504fd5f5c7128df4ef2f125a429e29cd62dc8c127523f04a5f2fa4771ed80e3f3d9695617f441425045f505cf3bb
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.1, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -1040,6 +1192,30 @@ __metadata:
   checksum: ebe6e3c5cbee72d5f9624c251d0f22bc7e96c752a7c76182c158f2687455c0803d630b5c42e9d8ef3cd028b3c502012455adc5f41e833d9d3b977240c59c572b
   languageName: node
   linkType: hard
+
+"divolt-desktop@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "divolt-desktop@workspace:."
+  dependencies:
+    "@cliqz/adblocker-electron": ^1.26.5
+    "@types/auto-launch": ^5.0.2
+    "@types/discord-rpc": ^4.0.3
+    auto-launch: ^5.0.5
+    cross-fetch: ^3.1.5
+    discord-rpc: "npm:@insertish/discord-rpc@*"
+    dotenv-cli: ^6.0.0
+    electron: ^22.0.0
+    electron-builder: ^23.6.0
+    electron-store: ^8.1.0
+    electron-updater: ^5.3.0
+    electron-window-state: ^5.0.3
+    node-gyp: ^9.3.0
+    prettier: ^2.8.0
+    rimraf: ^3.0.2
+    tsc-watch: ^5.0.3
+    typescript: ^4.9.3
+  languageName: unknown
+  linkType: soft
 
 "dmg-builder@npm:23.6.0":
   version: 23.6.0
@@ -2252,6 +2428,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:2.6.7":
+  version: 2.6.7
+  resolution: "node-fetch@npm:2.6.7"
+  dependencies:
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 8d816ffd1ee22cab8301c7756ef04f3437f18dace86a1dae22cf81db8ef29c0bf6655f3215cb0cdb22b420b6fe141e64b26905e7f33f9377a7fa59135ea3e10b
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:^2.6.1":
   version: 2.6.9
   resolution: "node-fetch@npm:2.6.9"
@@ -2577,28 +2767,6 @@ __metadata:
   checksum: 623bd7d2e5119467ba66202d733ec3c2e2e26568074923bc0585b6b99db14f357e79bdedb63cab56cec47491c4a0da7e6021a7465ca6dc4f481d3898fdd3158c
   languageName: node
   linkType: hard
-
-"revolt-desktop@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "revolt-desktop@workspace:."
-  dependencies:
-    "@types/auto-launch": ^5.0.2
-    "@types/discord-rpc": ^4.0.3
-    auto-launch: ^5.0.5
-    discord-rpc: "npm:@insertish/discord-rpc@*"
-    dotenv-cli: ^6.0.0
-    electron: ^22.0.0
-    electron-builder: ^23.6.0
-    electron-store: ^8.1.0
-    electron-updater: ^5.3.0
-    electron-window-state: ^5.0.3
-    node-gyp: ^9.3.0
-    prettier: ^2.8.0
-    rimraf: ^3.0.2
-    tsc-watch: ^5.0.3
-    typescript: ^4.9.3
-  languageName: unknown
-  linkType: soft
 
 "rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
   version: 3.0.2
@@ -2927,6 +3095,22 @@ __metadata:
   version: 2.3.8
   resolution: "through@npm:2.3.8"
   checksum: a38c3e059853c494af95d50c072b83f8b676a9ba2818dcc5b108ef252230735c54e0185437618596c790bbba8fcdaef5b290405981ffa09dce67b1f1bf190cbd
+  languageName: node
+  linkType: hard
+
+"tldts-core@npm:^5.7.112":
+  version: 5.7.112
+  resolution: "tldts-core@npm:5.7.112"
+  checksum: e86b1dd29a5fdb18b33b3fb49fc11778c11229adf83cc73d360ef0481d52309b91c8daa9aa6e5cf56540391a49b13c02326eb5311e869bdc66bb952e86b1e2be
+  languageName: node
+  linkType: hard
+
+"tldts-experimental@npm:^5.6.21":
+  version: 5.7.112
+  resolution: "tldts-experimental@npm:5.7.112"
+  dependencies:
+    tldts-core: ^5.7.112
+  checksum: efc006303ff57ebeb7e1203e26e69d3595fe971401089d1158c4a7885ec660f7f44e8f7396eaedf43e70f0c8d818bc6e1f069d946ec790546fa2719ac59df6ed
   languageName: node
   linkType: hard
 
