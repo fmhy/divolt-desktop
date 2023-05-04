@@ -4,9 +4,8 @@
     "description": "Divolt desktop app",
     "private": true,
     "author": {
-        "name": "Paul Makles",
-        "url": "https://insrt.uk",
-        "email": "me@insrt.uk"
+        "name": "Tyler Flowers",
+        "email": "contact@ggtylerr.dev"
     },
     "contributors": [
         {
@@ -113,6 +112,9 @@
                 }
             ]
         },
+        "extraFiles": [
+            "assets"
+        ],
         "appx": {
             "backgroundColor": "#0F1823",
             "displayName": "Divolt Desktop",

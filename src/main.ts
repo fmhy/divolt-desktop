@@ -14,8 +14,9 @@ import {
 import { execFile } from "node:child_process";
 import windowStateKeeper from "electron-window-state";
 import { RelaunchOptions } from "electron/main";
-import { URL } from "node:url";
-import path from "node:path";
+import { URL } from "url";
+import path from "path";
+import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 import { firstRun, getConfig, store, onStart, getBuildURL } from "./lib/config";
 import { connectRPC, dropRPC } from "./lib/discordRPC";
@@ -26,6 +27,7 @@ import { ElectronBlocker } from "@cliqz/adblocker-electron";
 let forceQuit = false;
 const appPath = App.getAppPath();
 
+const appPath = App.getAppPath();
 const trayIcon = nativeImage.createFromPath(
     path.resolve(
         appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
@@ -34,6 +36,17 @@ const trayIcon = nativeImage.createFromPath(
         // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
         process.platform === "darwin" ? "trayIconTemplate.png" : "trayIcon.png",
     ),
+);
+
+console.log(
+    path.resolve(
+        // Yes this is a really hacky solution to fix this.
+        appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
+        "assets",
+        // MacOS has special size and naming requirements for tray icons
+        // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
+        process.platform === "darwin" ? "trayIconTemplate.png" : "trayIcon.png",
+    )
 );
 
 const WindowIcon = nativeImage.createFromPath(
@@ -96,13 +109,11 @@ function createWindow() {
     mainWindow.loadURL(getBuildURL());
 
     /* Ad blocker */
-    console.info("Loading ad blocker.");
-    ElectronBlocker.fromPrebuiltAdsAndTracking(require("cross-fetch")).then(
-        (blocker) => {
-            blocker.enableBlockingInSession(session.defaultSession);
-            console.info("Ad blocker loaded!");
-        },
-    );
+    console.info('Loading ad blocker.');
+	ElectronBlocker.fromPrebuiltAdsAndTracking(require('cross-fetch')).then((blocker) => {
+		blocker.enableBlockingInSession(session.defaultSession);
+		console.info('Ad blocker loaded!');
+	});
 
     /**
      * Window events
@@ -230,6 +241,16 @@ function createWindow() {
         tray.setContextMenu(
             Menu.buildFromTemplate([
                 { label: "Divolt", type: "normal", enabled: false },
+                { label: "---", type: "separator" },
+                {
+                    label: "Clear Cache",
+                    type: "normal",
+                    click: function () {
+                        mainWindow.webContents.session.clearCache();
+                        app.shouldRelaunch = true;
+                        mainWindow.close();
+                    },
+                },
                 { label: "---", type: "separator" },
                 {
                     label: "Clear Cache",
