@@ -16,7 +16,6 @@ import windowStateKeeper from "electron-window-state";
 import { RelaunchOptions } from "electron/main";
 import { URL } from "url";
 import path from "path";
-import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 import { firstRun, getConfig, store, onStart, getBuildURL } from "./lib/config";
 import { connectRPC, dropRPC } from "./lib/discordRPC";
@@ -25,7 +24,6 @@ import { autoUpdate } from "./lib/updater";
 import { ElectronBlocker } from "@cliqz/adblocker-electron";
 
 let forceQuit = false;
-const appPath = App.getAppPath();
 
 const appPath = App.getAppPath();
 const trayIcon = nativeImage.createFromPath(
