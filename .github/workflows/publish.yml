@@ -53,4 +53,3 @@ jobs:
       run: |
         yarn build:bundle
         yarn release
-        
