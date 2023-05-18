@@ -11,17 +11,19 @@ import {
     MenuItem,
     session,
 } from "electron";
-import { execFile } from "child_process";
+import { execFile } from "node:child_process";
 import windowStateKeeper from "electron-window-state";
 import { RelaunchOptions } from "electron/main";
 import { URL } from "url";
 import path from "path";
-import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 import { firstRun, getConfig, store, onStart, getBuildURL } from "./lib/config";
 import { connectRPC, dropRPC } from "./lib/discordRPC";
 import { autoLaunch } from "./lib/autoLaunch";
 import { autoUpdate } from "./lib/updater";
+import { ElectronBlocker } from "@cliqz/adblocker-electron";
+
+let forceQuit = false;
 
 const appPath = App.getAppPath();
 const trayIcon = nativeImage.createFromPath(
@@ -119,6 +121,7 @@ function createWindow() {
 
     mainWindow.on("close", (event) => {
         if (
+            !forceQuit &&
             !app.shouldQuit &&
             !app.shouldRelaunch &&
             getConfig().minimiseToTray
@@ -133,6 +136,11 @@ function createWindow() {
             event.preventDefault();
             mainWindow.webContents.setZoomLevel(
                 mainWindow.webContents.getZoomLevel() + 1,
+            );
+        } else if (input.control && input.key === "-") {
+            event.preventDefault();
+            mainWindow.webContents.setZoomLevel(
+                mainWindow.webContents.getZoomLevel() - 1,
             );
         }
     });
@@ -243,6 +251,15 @@ function createWindow() {
                 },
                 { label: "---", type: "separator" },
                 {
+                    label: "Clear Cache",
+                    type: "normal",
+                    click: function () {
+                        mainWindow.webContents.session.clearCache();
+                        app.shouldRelaunch = true;
+                        mainWindow.close();
+                    },
+                },
+                {
                     label: mainWindow.isVisible()
                         ? "Hide Divolt"
                         : "Show Divolt",
@@ -278,17 +295,6 @@ function createWindow() {
     buildMenu();
     tray.setToolTip("Divolt");
     tray.setImage(trayIcon);
-    tray.on("click", function (e) {
-        if (mainWindow.isVisible()) {
-            if (mainWindow.isFocused()) {
-                mainWindow.hide();
-            } else {
-                mainWindow.focus();
-            }
-        } else {
-            mainWindow.show();
-        }
-    });
 }
 
 /**
@@ -317,10 +323,19 @@ if (!acquiredLock) {
         createWindow();
 
         App.on("activate", function () {
-            if (BrowserWindow.getAllWindows().length === 0) createWindow();
+            if (BrowserWindow.getAllWindows().length === 0) {
+                createWindow();
+            } else {
+                if (!mainWindow.isVisible()) return mainWindow.show();
+                else return mainWindow.focus();
+            }
         });
     });
 }
+
+app.on("before-quit", () => {
+    forceQuit = true;
+});
 
 /**
  * Close out application unless if instructed to relaunch.

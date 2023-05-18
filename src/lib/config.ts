@@ -20,7 +20,7 @@ export async function firstRun() {
 
     store.set("firstrun", true);
     store.set("config", {
-        "minimiseToTray": "false"
+        minimiseToTray: "false",
     });
 }
 
@@ -49,5 +49,6 @@ export function onStart() {
 }
 
 export function getBuildURL() {
+    // TODO: add an API_URL option
     return "https://divolt.xyz";
 }
