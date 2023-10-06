@@ -32,10 +32,9 @@ CLI Commands:
 | `yarn clean`        | Cleans the application bundle.                                                      |
 
 There are also numerous OS-specific commands related to building and testing, all prefixed with `yarn`:
- - `build:linux:tar`, `build:linux:unpacked`, `build:linux:appimage`, `build:mac`, `build:windows:nsis`, `build:windows:appx`
-    - Builds the application for the specified platform and packaging format.
- - `test:linux:appimage`
-    - Runs the newest build of the Linux AppImage.
+
+-   `build:linux` `build:mac`, `build:windows`
+    -   Builds the application for the specified platform.
 
 ## Troubleshooting
 
@@ -63,4 +62,8 @@ If this still occurred on a later version, please report an issue.
 
 ## License
 
+<<<<<<< HEAD
 Divolt Desktop and Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/ggtylerr/divolt-desktop/blob/master/LICENSE).
+=======
+Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/revoltchat/desktop/blob/master/LICENSE).
+>>>>>>> 2373e7d6887b57ef8b837d6be53e2fa8b24a6fe0

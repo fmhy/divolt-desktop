@@ -37,7 +37,7 @@
         "@types/auto-launch": "^5.0.2",
         "@types/discord-rpc": "^4.0.3",
         "dotenv-cli": "^6.0.0",
-        "electron": "^22.0.0",
+        "electron": "^22.3.25",
         "electron-builder": "^23.6.0",
         "node-gyp": "^9.3.0",
         "prettier": "^2.8.0",
@@ -86,15 +86,15 @@
                 }
             ],
             "category": "InstantMessaging",
-            "executableName": "revolt-desktop",
+            "executableName": "divolt-desktop",
             "desktop": {
                 "Name": "Divolt",
                 "Comment": "User-first, privacy focused chat platform.",
                 "Terminal": false,
                 "Type": "Application",
-                "Icon": "revolt-desktop",
+                "Icon": "divolt-desktop",
                 "Categories": "InstantMessaging",
-                "StartupWMClass": "RevoltDesktop"
+                "StartupWMClass": "DivoltDesktop"
             }
         },
         "win": {
@@ -154,7 +154,7 @@
         }
     },
     "dependencies": {
-        "@cliqz/adblocker-electron": "^1.26.5",
+        "@cliqz/adblocker-electron": "^1.26.7",
         "auto-launch": "^5.0.5",
         "cross-fetch": "^3.1.5",
         "discord-rpc": "npm:@insertish/discord-rpc@*",

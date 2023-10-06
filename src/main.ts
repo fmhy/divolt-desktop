@@ -14,8 +14,8 @@ import {
 import { execFile } from "node:child_process";
 import windowStateKeeper from "electron-window-state";
 import { RelaunchOptions } from "electron/main";
-import { URL } from "url";
-import path from "path";
+import { URL } from "node:url";
+import path from "node:path";
 
 import { firstRun, getConfig, store, onStart, getBuildURL } from "./lib/config";
 import { connectRPC, dropRPC } from "./lib/discordRPC";
@@ -25,7 +25,10 @@ import { ElectronBlocker } from "@cliqz/adblocker-electron";
 
 let forceQuit = false;
 
+<<<<<<< HEAD
 const appPath = App.getAppPath();
+=======
+>>>>>>> 2373e7d6887b57ef8b837d6be53e2fa8b24a6fe0
 const trayIcon = nativeImage.createFromPath(
     path.resolve(
         appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
