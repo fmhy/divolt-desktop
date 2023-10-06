@@ -4,16 +4,16 @@
 
 This is a fork of [Revolt Desktop](https://github.com/revoltchat/desktop) for Divolt, a self-hosted instance of Revolt.
 
-It also has additional features, like an adblocker, [(from revolt-desktop-adblock)](https://github.com/janderedev/revolt-desktop-adblock) and sooner bug fixes than Revolt.
+It also has additional features, like an adblocker, [(from revolt-desktop-adblock)](https://github.com/sussycatgirl/revolt-desktop-adblock) and sooner bug fixes than Revolt.
 
 ## Quick Start
 
-You can get the latest version in [releases.](https://github.com/ggtylerr/divolt-desktop/releases) Please note that any release by "github-actions" is automated (generated every time a commit / change is done) and may include bugs.
+You can get the latest version in [releases.](https://github.com/fmhy/divolt-desktop/releases) Please note that any release by "github-actions" is automated (generated every time a commit / change is done) and may include bugs.
 
 If you want to build it yourself, you'll need [Node.JS](https://nodejs.org/en/) and [Yarn.](https://yarnpkg.com/getting-started/install) Then do the following:
 
 ```
-git clone https://github.com/ggtylerr/divolt-desktop
+git clone https://github.com/fmhy/divolt-desktop
 cd divolt-desktop
 yarn
 yarn build:bundle
@@ -44,7 +44,7 @@ If you have issues, please check the following first:
 * Are you using an outdated version?
 * If you have connection problems, do you have a firewall?
 
-If all of the above is false, and it's not listed in the known bugs, please [report an issue.](https://github.com/ggtylerr/divolt-desktop/issues/new/choose)
+If all of the above is false, and it's not listed in the known bugs, please [report an issue.](https://github.com/fmhy/divolt-desktop/issues/new/choose)
 
 ## Known bugs
 
@@ -61,9 +61,4 @@ You can check what version you had by looking in your downloads / history. If yo
 If this still occurred on a later version, please report an issue.
 
 ## License
-
-<<<<<<< HEAD
-Divolt Desktop and Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/ggtylerr/divolt-desktop/blob/master/LICENSE).
-=======
-Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/revoltchat/desktop/blob/master/LICENSE).
->>>>>>> 2373e7d6887b57ef8b837d6be53e2fa8b24a6fe0
+Divolt Desktop and Revolt Desktop is licensed under the [GNU Affero General Public License v3.0](https://github.com/fmhy/divolt-desktop/blob/master/LICENSE).

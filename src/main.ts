@@ -25,10 +25,7 @@ import { ElectronBlocker } from "@cliqz/adblocker-electron";
 
 let forceQuit = false;
 
-<<<<<<< HEAD
 const appPath = App.getAppPath();
-=======
->>>>>>> 2373e7d6887b57ef8b837d6be53e2fa8b24a6fe0
 const trayIcon = nativeImage.createFromPath(
     path.resolve(
         appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
