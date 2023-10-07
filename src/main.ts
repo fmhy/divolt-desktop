@@ -236,16 +236,6 @@ function createWindow() {
                         mainWindow.close();
                     },
                 },
-                { label: "---", type: "separator" },
-                {
-                    label: "Clear Cache",
-                    type: "normal",
-                    click: function () {
-                        mainWindow.webContents.session.clearCache();
-                        app.shouldRelaunch = true;
-                        mainWindow.close();
-                    },
-                },
                 {
                     label: mainWindow.isVisible()
                         ? "Hide Divolt"
