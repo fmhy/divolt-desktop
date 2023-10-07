@@ -36,17 +36,6 @@ const trayIcon = nativeImage.createFromPath(
     ),
 );
 
-console.log(
-    path.resolve(
-        // Yes this is a really hacky solution to fix this.
-        appPath + (appPath.endsWith("app.asar") ? "/../.." : ""),
-        "assets",
-        // MacOS has special size and naming requirements for tray icons
-        // https://stackoverflow.com/questions/41664208/electron-tray-icon-change-depending-on-dark-theme/41998326#41998326
-        process.platform === "darwin" ? "trayIconTemplate.png" : "trayIcon.png",
-    )
-);
-
 const WindowIcon = nativeImage.createFromPath(
     path.resolve(App.getAppPath(), "assets", "icon.png"),
 );
@@ -107,10 +96,8 @@ function createWindow() {
     mainWindow.loadURL(getBuildURL());
 
     /* Ad blocker */
-    console.info('Loading ad blocker.');
 	ElectronBlocker.fromPrebuiltAdsAndTracking(require('cross-fetch')).then((blocker) => {
 		blocker.enableBlockingInSession(session.defaultSession);
-		console.info('Ad blocker loaded!');
 	});
 
     /**
